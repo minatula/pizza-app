@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('cart')->group(function () {
+    Route::get('', 'CartController@index')->name('cart.index');
+});
+
 Route::get('/', 'MainController@index')->name('home');
