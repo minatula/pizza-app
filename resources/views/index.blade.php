@@ -4,11 +4,9 @@
     @include('includes.header')
     <div class="container">
         <div class="row py-3">
-            @include('includes.product_card')
-            @include('includes.product_card')
-            @include('includes.product_card')
-            @include('includes.product_card')
-            @include('includes.product_card')
+            @foreach($products as $product)
+                @include('includes.product_card', ['product' => $product])
+            @endforeach
         </div>
     </div>
 @endsection
