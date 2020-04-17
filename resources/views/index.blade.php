@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    @include('includes.header')
     <div class="container">
         <div class="row py-3">
             @foreach($products as $product)

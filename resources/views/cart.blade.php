@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('content')
-    @include('includes.header')
     <div class="container">
         <div class="row">
             <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
