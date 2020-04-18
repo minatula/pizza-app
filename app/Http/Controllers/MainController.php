@@ -10,6 +10,6 @@ class MainController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('index', compact('products'));
+        return view('home', compact('products'));
     }
 }
