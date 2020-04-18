@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
 
+    /**
+     * Add product to cart(order)
+     *
+     * @param int $productId
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addProduct($productId)
     {
         $order = $this->getCurrentOrderOrCreate();
@@ -15,6 +21,13 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart');
     }
 
+    /**
+     * Change product amount for cart(order)
+     *
+     * @param int $productId
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function changeProductAmount($productId, Request $request)
     {
         $order = $this->getCurrentOrder();
@@ -22,9 +35,13 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
+    /**
+     * Show the user cart
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function index()
     {
-
         $order = $this->getCurrentOrder();
 
         if (!$order || !count($order->products))
@@ -33,6 +50,12 @@ class CartController extends Controller
         return view('cart', compact('order'));
     }
 
+    /**
+     * Remove product from cart(order)
+     *
+     * @param int $productId
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function removeProduct($productId)
     {
         $order = $this->getCurrentOrder();
