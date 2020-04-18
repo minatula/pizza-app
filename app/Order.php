@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = [
+        'customer_name',
+        'customer_phone',
+        'customer_address',
+        'finished',
+    ];
+
     public function addProduct($productId)
     {
         if ($this->products->contains($productId)) {
@@ -32,6 +39,17 @@ class Order extends Model
         return false;
     }
 
+    public function finish($formData)
+    {
+        $formData['finished'] = 1;
+
+        if ($this->update($formData)) {
+            session()->forget('orderId');
+            return true;
+        }
+        return false;
+    }
+
     public function removeProduct($productId)
     {
         if ($this->products->contains($productId)) {
@@ -49,5 +67,19 @@ class Order extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('product_amount');
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'customer_name' => 'required',
+            'customer_phone' => 'required',
+            'customer_address' => 'required',
+        ];
     }
 }

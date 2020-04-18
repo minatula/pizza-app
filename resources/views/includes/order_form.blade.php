@@ -1,4 +1,10 @@
-<form class="well form-horizontal" style="max-width: 300px;">
+<form
+    class="well form-horizontal"
+    style="max-width: 500px;"
+    action="{{ route('order.finish') }}"
+    method="POST"
+>
+    @csrf
     <fieldset>
         <legend><h2><b>Fill the form</b></h2></legend><br />
 
@@ -14,9 +20,11 @@
                         class="form-control"
                         type="text"
                     />
-                    <div class="position-absolute fixed-bottom text-danger">
-                        Error
-                    </div>
+                    @error('customer_name')
+                        <div class="position-absolute fixed-bottom text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -32,9 +40,11 @@
                         class="form-control"
                         type="text"
                     />
-                    <div class="position-absolute fixed-bottom text-danger">
-                        Error
-                    </div>
+                    @error('customer_phone')
+                        <div class="position-absolute fixed-bottom text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -50,9 +60,11 @@
                         class="form-control"
                         type="text"
                     />
-                    <div class="position-absolute fixed-bottom text-danger">
-                        Error
-                    </div>
+                    @error('customer_address')
+                        <div class="position-absolute fixed-bottom text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
         </div>

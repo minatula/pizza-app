@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('order')->group(function () {
+    Route::post('/finish', 'OrderController@finish')->name('order.finish');
     Route::get('', 'OrderController@index')->name('order.index');
 });
 

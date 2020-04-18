@@ -17,6 +17,24 @@ class OrderController extends Controller
         return view('order', compact('order'));
     }
 
+    public function finish(Request $request)
+    {
+        $order = $this->getCurrentOrder();
+
+        if (!$order || !count($order->products))
+            return redirect()->route('home')->with('error', 'Your cart is empty');
+
+        $request->validate([
+            'customer_name' => 'required',
+            'customer_phone' => 'required',
+            'customer_address' => 'required',
+        ]);
+
+        $order->finish($request->all());
+
+        return redirect()->route('home');
+    }
+
     /**
      * Return current Order from session
      *
