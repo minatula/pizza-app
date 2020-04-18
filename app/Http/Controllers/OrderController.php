@@ -32,7 +32,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the homepage
+     * Show the order form
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
