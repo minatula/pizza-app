@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('cart')->group(function () {
+    Route::post('/add/{productId}', 'CartController@addProduct')->name('cart.add');
     Route::get('', 'CartController@index')->name('cart.index');
 });
 

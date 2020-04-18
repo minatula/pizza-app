@@ -8,7 +8,10 @@
         <div class="card-body">
             <h5 class="card-title">{{ $product->name }}</h5>
             <p class="card-text">{{ $product->description }}</p>
-            <a href="#" class="btn btn-primary">Add to cart</a>
+            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">Add to cart</button>
+            </form>
         </div>
     </div>
 </div>

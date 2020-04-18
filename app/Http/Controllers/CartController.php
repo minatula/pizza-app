@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    public function addProduct($productId)
+    {
+        $order = $this->getCurrentOrderOrCreate();
+        $order->addProduct($productId);
+        return redirect()->back()->with('success', 'Product added to cart');
+    }
+
     public function index()
     {
 
