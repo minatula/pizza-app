@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('order')->group(function () {
+    Route::get('', 'OrderController@index')->name('order.index');
+});
+
 Route::prefix('cart')->group(function () {
     Route::post('/remove-product/{productId}', 'CartController@removeProduct')
         ->name('cart.removeProduct');
