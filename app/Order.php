@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'customer_name',
         'customer_phone',
@@ -13,6 +18,13 @@ class Order extends Model
         'finished',
     ];
 
+    /**
+     * Add product to order
+     *
+     * @param int  $productId
+     *
+     * @return bool
+     */
     public function addProduct($productId)
     {
         if ($this->products->contains($productId)) {
@@ -25,6 +37,14 @@ class Order extends Model
         return true;
     }
 
+    /**
+     * Change product amount for order
+     *
+     * @param int  $productId
+     * @param int  $amount
+     *
+     * @return bool
+     */
     public function changeProductAmount($productId, $amount)
     {
         if ($this->products->contains($productId)) {
@@ -39,21 +59,19 @@ class Order extends Model
         return false;
     }
 
+    /**
+     * Add customer info to order and set status to finished
+     *
+     * @param array $formData
+     *
+     * @return bool
+     */
     public function finish($formData)
     {
         $formData['finished'] = 1;
 
         if ($this->update($formData)) {
             session()->forget('orderId');
-            return true;
-        }
-        return false;
-    }
-
-    public function removeProduct($productId)
-    {
-        if ($this->products->contains($productId)) {
-            $this->products()->detach($productId);
             return true;
         }
         return false;
@@ -67,6 +85,22 @@ class Order extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('product_amount');
+    }
+
+    /**
+     * Remove product from order
+     *
+     * @param int $productId
+     *
+     * @return bool
+     */
+    public function removeProduct($productId)
+    {
+        if ($this->products->contains($productId)) {
+            $this->products()->detach($productId);
+            return true;
+        }
+        return false;
     }
 
     /**
