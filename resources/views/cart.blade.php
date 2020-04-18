@@ -23,10 +23,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @include('includes/cart_item')
-                        @include('includes/cart_item')
-                        @include('includes/cart_item')
-                        @include('includes/cart_item')
+                            @foreach($order->products as $product)
+                                @include('includes/cart_item', ['product' => $product])
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-start">
