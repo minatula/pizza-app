@@ -33,10 +33,10 @@
             </div>
         </div>
         @if ($message = Session::get('success'))
-            @include('includes/flash_messages', ['$message' => $message, 'type' => 'alert-success'])
+            @include('includes.common.flash_messages', ['$message' => $message, 'type' => 'alert-success'])
         @endif
         @if ($message = Session::get('error'))
-            @include('includes/flash_messages', ['$message' => $message, 'type' => 'alert-danger'])
+            @include('includes.common.flash_messages', ['$message' => $message, 'type' => 'alert-danger'])
         @endif
     </div>
 </header>

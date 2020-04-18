@@ -24,7 +24,7 @@
                         </thead>
                         <tbody>
                             @foreach($order->products as $product)
-                                @include('includes/cart_item', ['product' => $product])
+                                @include('includes.cart.item', ['product' => $product])
                             @endforeach
                         </tbody>
                     </table>
