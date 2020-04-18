@@ -7,16 +7,12 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
-        $order = $this->getCurrentOrder();
-
-        if (!$order || !count($order->products))
-            return redirect()->route('home')->with('error', 'Your cart is empty');
-
-        return view('order', compact('order'));
-    }
-
+    /**
+     * Validate form and finish the order
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function finish(Request $request)
     {
         $order = $this->getCurrentOrder();
@@ -33,6 +29,21 @@ class OrderController extends Controller
         $order->finish($request->all());
 
         return redirect()->route('home');
+    }
+
+    /**
+     * Show the homepage
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function index()
+    {
+        $order = $this->getCurrentOrder();
+
+        if (!$order || !count($order->products))
+            return redirect()->route('home')->with('error', 'Your cart is empty');
+
+        return view('order', compact('order'));
     }
 
     /**
