@@ -29,7 +29,7 @@
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-start">
-                        <a href="#" class="btn btn-dark rounded-pill btn-block w-25 d-flex align-items-center justify-content-center m-0">
+                        <a href="{{ route('order.index') }}" class="btn btn-dark rounded-pill btn-block w-25 d-flex align-items-center justify-content-center m-0">
                             Checkout
                         </a>
                     </div>
