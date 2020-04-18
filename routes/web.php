@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('cart')->group(function () {
+    Route::post('/change-product-amount/{productId}', 'CartController@changeProductAmount')
+        ->name('cart.changeProductAmount');
     Route::post('/add/{productId}', 'CartController@addProduct')->name('cart.add');
     Route::get('', 'CartController@index')->name('cart.index');
 });

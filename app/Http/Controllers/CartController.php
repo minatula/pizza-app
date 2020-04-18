@@ -15,6 +15,13 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart');
     }
 
+    public function changeProductAmount($productId, Request $request)
+    {
+        $order = $this->getCurrentOrder();
+        $order->changeProductAmount($productId, $request->productAmount);
+        return redirect()->route('cart.index');
+    }
+
     public function index()
     {
 

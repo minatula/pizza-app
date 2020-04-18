@@ -18,6 +18,20 @@ class Order extends Model
         return true;
     }
 
+    public function changeProductAmount($productId, $amount)
+    {
+        if ($this->products->contains($productId)) {
+            $product = $this->products()->where('product_id', $productId)->first()->pivot;
+            if ($amount >= 1) {
+                $product->product_amount = $amount;
+                $product->update();
+                return true;
+            }
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Products from current order
      *

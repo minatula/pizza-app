@@ -18,15 +18,23 @@
     </th>
     <td class="border-0 align-middle"><strong>{{ $product->price }}</strong></td>
     <td class="border-0 align-middle d-flex">
-        <input
-            type="number"
-            min="1"
-            class="form-control w-25 text-center"
-            value="{{ $product->pivot->product_amount }}"
-        />
-        <button class="btn">
-            <i class="fas fa-sync"></i>
-        </button>
+        <form
+            action="{{ route('cart.changeProductAmount', $product->id) }}"
+            class="d-flex"
+            method="POST"
+        >
+            @csrf
+            <input
+                name="productAmount"
+                type="number"
+                min="1"
+                class="form-control w-25 text-center"
+                value="{{ $product->pivot->product_amount }}"
+            />
+            <button type="submit" class="btn">
+                <i class="fas fa-sync"></i>
+            </button>
+        </form>
     </td>
     <td class="border-0 align-middle">
         <button class="btn">
