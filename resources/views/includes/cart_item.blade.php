@@ -37,8 +37,15 @@
         </form>
     </td>
     <td class="border-0 align-middle">
-        <button class="btn">
-            <i class="fa fa-trash"></i>
-        </button>
+        <form
+            action="{{ route('cart.removeProduct', $product->id) }}"
+            class="d-flex"
+            method="POST"
+        >
+            @csrf
+            <button type="submit" class="btn">
+                <i class="fa fa-trash"></i>
+            </button>
+        </form>
     </td>
 </tr>

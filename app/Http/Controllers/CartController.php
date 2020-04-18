@@ -27,12 +27,21 @@ class CartController extends Controller
 
         $order = $this->getCurrentOrder();
 
-        if (!$order)
-            return redirect()->back()->with('error', 'Your cart is empty');
+        if (!$order || !count($order->products))
+            return redirect()->route('home')->with('error', 'Your cart is empty');
 
         return view('cart', compact('order'));
     }
 
+    public function removeProduct($productId)
+    {
+        $order = $this->getCurrentOrder();
+        if (!$order)
+            return redirect()->back()->with('error', 'Your cart is empty');
+
+        $order->removeProduct($productId);
+        return redirect()->route('cart.index');
+    }
 
     /**
      * Return current Order from session or create new

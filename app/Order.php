@@ -32,6 +32,15 @@ class Order extends Model
         return false;
     }
 
+    public function removeProduct($productId)
+    {
+        if ($this->products->contains($productId)) {
+            $this->products()->detach($productId);
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Products from current order
      *
