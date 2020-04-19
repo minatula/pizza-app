@@ -16,7 +16,7 @@
             </div>
         </div>
     </th>
-    <td class="border-0 align-middle"><strong>{{ $product->price }}</strong></td>
+    <td class="border-0 align-middle"><strong>{{ $product->price }} {{ $product->currency_symbol }}</strong></td>
     <td class="border-0 align-middle d-flex">
         <form
             action="{{ route('cart.changeProductAmount', $product->id) }}"
