@@ -28,7 +28,7 @@ class OrderController extends Controller
 
         $order->finish($request->all());
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Thank you! We will call you soon!');
     }
 
     /**
