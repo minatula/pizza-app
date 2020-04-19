@@ -11,6 +11,7 @@
 <body>
     @include('includes.common.header')
     @yield('content')
+    @include('includes.common.footer')
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
