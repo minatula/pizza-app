@@ -21,7 +21,7 @@
                                     {{ App\Currency::byCode(session('currency', 'USD'))->first()->code }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @foreach(App\Currency::all() as $currency)
+                                    @foreach($currencies as $currency)
                                         <a
                                             href="{{ route('changeCurrency', $currency->code) }}"
                                             class="dropdown-item"
