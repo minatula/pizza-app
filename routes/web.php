@@ -27,4 +27,5 @@ Route::prefix('cart')->group(function () {
     Route::get('', 'CartController@index')->name('cart.index');
 });
 
+Route::get('/change-currency/{currencyCode}', 'MainController@changeCurrency')->name('changeCurrency');
 Route::get('/', 'MainController@index')->name('home');

@@ -18,13 +18,17 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
+                                    {{ App\Currency::byCode(session('currency', 'USD'))->first()->code }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    @foreach(App\Currency::all() as $currency)
+                                        <a
+                                            href="{{ route('changeCurrency', $currency->code) }}"
+                                            class="dropdown-item"
+                                        >
+                                            {{ $currency->code }}
+                                        </a>
+                                    @endforeach
                                 </div>
                             </li>
                         </ul>
