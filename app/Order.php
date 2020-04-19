@@ -78,6 +78,21 @@ class Order extends Model
     }
 
     /**
+     * Return total price for current order
+     *
+     * @return mixed
+     */
+    public function getTotalAttribute()
+    {
+        $total = 0;
+
+        foreach ($this->products as $product) {
+            $total += $product->total_price;
+        }
+        return $total;
+    }
+
+    /**
      * Products from current order
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
