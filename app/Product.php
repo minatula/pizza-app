@@ -15,4 +15,27 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class);
     }
+
+
+    /**
+     * @param $value
+     * @return mixed
+     */
+    public function getPriceAttribute($value)
+    {
+        $currency = Currency::byCode(session('currency', 'USD'))->first();
+        $value = round($value * $currency->value, 2);
+        return $value;
+    }
+
+    /**
+     * Return symbol for current currency
+     *
+     * @return mixed
+     */
+    public function getCurrencySymbolAttribute()
+    {
+        $currency = Currency::byCode(session('currency', 'USD'))->first();
+        return $currency->symbol;
+    }
 }
