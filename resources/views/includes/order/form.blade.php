@@ -6,9 +6,8 @@
 >
     @csrf
     <fieldset>
-        <legend><h2><b>Fill the form</b></h2></legend><br />
 
-
+        <legend><h2><b>Fill the form</b></h2></legend>
         <div class="form-group">
             <label class="col-12 control-label">Name</label>
             <div class="col-12 inputGroupContainer">
