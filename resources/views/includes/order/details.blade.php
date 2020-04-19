@@ -20,7 +20,7 @@
         </div>
         <div class="col-3 text-center py-3">
             <h5>
-                {{ $product->price }} {{ $product->currency_symbol }}
+                {{ $product->total_price }} {{ $product->currency_symbol }}
             </h5>
         </div>
     </div>

@@ -37,6 +37,9 @@
         </form>
     </td>
     <td class="border-0 align-middle">
+        {{ $product->total_price }} {{ $product->currency_symbol }}
+    </td>
+    <td class="border-0 align-middle">
         <form
             action="{{ route('cart.removeProduct', $product->id) }}"
             class="d-flex"

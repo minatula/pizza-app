@@ -38,4 +38,14 @@ class Product extends Model
         $currency = Currency::byCode(session('currency', 'USD'))->first();
         return $currency->symbol;
     }
+
+    /**
+     * Return total price for product in Order
+     *
+     * @return mixed
+     */
+    public function getTotalPriceAttribute()
+    {
+        return $this->pivot->product_amount * $this->price;
+    }
 }

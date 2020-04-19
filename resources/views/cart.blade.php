@@ -18,6 +18,9 @@
                                 <div class="py-2 text-uppercase">Quantity</div>
                             </th>
                             <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Total</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
                                 <div class="py-2 text-uppercase">Remove</div>
                             </th>
                         </tr>
