@@ -1,4 +1,7 @@
-<footer class="footer bg-dark text-white p-3">
+<footer
+    class="footer bg-dark text-white p-3 position-absolute w-100 d-flex align-items-center"
+    style="bottom: 0; height: 150px;"
+>
     <div class="container">
         <div class="row mb-2">
             <div class="col-12 text-center">
