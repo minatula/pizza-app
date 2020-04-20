@@ -45,7 +45,7 @@
                 </td>
                 <td class="border-0 align-middle">
                     <div>
-                        <strong>{{ $product->total_price }} {{ $product->currency_symbol }}</strong>
+                        <strong>{{ $product->total_price }} {{$currentCurrency->symbol }}</strong>
                     </div>
                 </td>
             </tr>

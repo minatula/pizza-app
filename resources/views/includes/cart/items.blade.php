@@ -44,7 +44,7 @@
                 </td>
                 <td class="border-0 align-middle">
                     <div class="p-2">
-                        <strong>{{ $product->price }} {{ $product->currency_symbol }}</strong>
+                        <strong>{{ $product->price }} {{$currentCurrency->symbol }}</strong>
                     </div>
                 </td>
                 <td class="border-0 align-middle d-flex">
@@ -69,7 +69,7 @@
                 </td>
                 <td class="border-0 align-middle">
                     <div>
-                        <strong>{{ $product->total_price }} {{ $product->currency_symbol }}</strong>
+                        <strong>{{ $product->total_price }} {{$currentCurrency->symbol }}</strong>
                     </div>
                 </td>
                 <td class="border-0 align-middle">

@@ -29,17 +29,6 @@ class Product extends Model
     }
 
     /**
-     * Return symbol for current currency
-     *
-     * @return mixed
-     */
-    public function getCurrencySymbolAttribute()
-    {
-        $currency = Currency::byCode(session('currency', 'USD'))->first();
-        return $currency->symbol;
-    }
-
-    /**
      * Return total price for product in Order
      *
      * @return mixed
