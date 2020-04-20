@@ -8,7 +8,7 @@ use Tests\TestCase;
 class HomepageTestTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Homepage response test
      *
      * @return void
      */
