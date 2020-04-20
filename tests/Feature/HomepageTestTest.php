@@ -26,4 +26,24 @@ class HomepageTestTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * Homepage products test
+     *
+     * @return void
+     */
+    public function testProducts()
+    {
+        $response = $this->get('/');
+
+        $response->assertSeeInOrder([
+            'Americana Fresh',
+            'Big Chicken',
+            'Teriyaki',
+            'Cheeseburger',
+            'Mushrooms',
+            'Margherita',
+            'European',
+        ]);
+    }
 }
