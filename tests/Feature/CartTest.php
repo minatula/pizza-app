@@ -17,7 +17,7 @@ class CartTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+     * Visiting empty cart
      *
      * @return void
      */
@@ -26,5 +26,17 @@ class CartTest extends TestCase
         $response = $this->get('/cart');
 
         $response->assertStatus(302);
+    }
+
+    /**
+     * Adding product to cart
+     *
+     * @return void
+     */
+    public function testAddProduct()
+    {
+        $response = $this->post('/cart/add/1');
+
+        $response->assertSessionHas('success');
     }
 }
