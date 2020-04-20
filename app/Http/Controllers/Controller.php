@@ -16,8 +16,11 @@ class Controller extends BaseController
     public function __construct()
     {
         // Common vars for all views
-        View::share([
-            'currentCurrency' => Currency::byCode(session('currency', 'USD'))->first()
-        ]);
+        $this->middleware(function ($request, $next) {
+            View::share([
+                'currentCurrency' => Currency::byCode(session('currency', 'USD'))->first()
+            ]);
+            return $next($request);
+        });
     }
 }
