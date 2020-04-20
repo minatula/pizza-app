@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 <body>
-    @include('includes.common.header')
+    <x-header/>
     @yield('content')
     @include('includes.common.footer')
     <script src="{{ asset('js/app.js') }}"></script>
