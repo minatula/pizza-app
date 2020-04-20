@@ -15,13 +15,6 @@ class Header extends Component
     protected $currencies;
 
     /**
-     * Current currency
-     *
-     * @var string
-     */
-    protected $currentCurrency;
-
-    /**
      * Create a new component instance.
      *
      * @return void
@@ -29,7 +22,6 @@ class Header extends Component
     public function __construct()
     {
         $this->currencies = Currency::all();
-        $this->currentCurrency = Currency::byCode(session('currency', 'USD'))->first();
     }
 
     /**
@@ -41,7 +33,6 @@ class Header extends Component
     {
         return view('components.header', [
             'currencies' => $this->currencies,
-            'currentCurrency' => $this->currentCurrency
         ]);
     }
 }
